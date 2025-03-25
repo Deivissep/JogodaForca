@@ -61,7 +61,7 @@
                     dicaDaPalavra = string.Join(" ", letrasEncontradas);
 
                     jogadorAcertou = dicaDaPalavra == palavraSecreta;
-                    jogadorEnforcou = quantidadeErros > 5; //6 tentativas o rapaz é enforcado
+                    jogadorEnforcou = quantidadeErros >= 6; //6 tentativas o rapaz é enforcado
 
                     if(jogadorAcertou)
                     {
@@ -76,7 +76,7 @@
                         Console.WriteLine("---------------------------------");
                     }
 
-                } while (jogadorAcertou == false || jogadorEnforcou == false);// || = ou
+                } while (jogadorAcertou == false && jogadorEnforcou == false);// || = ou
 
                 Console.ReadLine();
 
