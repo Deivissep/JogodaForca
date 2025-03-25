@@ -9,7 +9,7 @@
             while (true)
             {
 
-                string palavraSecreta = "MELANCIA";
+                string palavraSecreta = "MELANCIA".ToUpper();
 
                 char[] letrasEncontradas = new char[palavraSecreta.Length];
 
@@ -38,7 +38,7 @@
                     Console.WriteLine("---------------------------------");
 
                     Console.Write("Digite uma letra: ");
-                    char chute = Console.ReadLine()[0]; // pega apenas um caracter que usuário digita
+                    char chute = Console.ReadLine().ToUpper()[0]; // pega apenas um caracter que usuário digita
 
                     bool letraFoiEncontrada = false;
 
