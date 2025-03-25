@@ -3,7 +3,7 @@
     internal class Program
     {
 
-        //V02 - Exibir palavra ocula com traços
+        //V03 - Verificação da entrada de dados do usuário
         static void Main(string[] args)
         {
             while (true)
@@ -19,19 +19,65 @@
                     letrasEncontradas[caractere] = '_';
                 }
 
-                string dicaDaPalavra = string.Join(" ", letrasEncontradas);
+                int quantidadeErros = 0;
+                bool jogadorEnforcou = false;
+                bool jogadorAcertou = false;
 
-                Console.Clear();
-                Console.WriteLine("---------------------------------");
-                Console.WriteLine("Jogo da Forca");
-                Console.WriteLine("---------------------------------");
-                Console.WriteLine("Palavra secreta: " + dicaDaPalavra);
-                Console.WriteLine("---------------------------------");
+                do
+                {
+                    string dicaDaPalavra = string.Join(" ", letrasEncontradas);
 
-                Console.Write("Digite uma letra: ");
-                char chute = Console.ReadLine()[0]; // pega apenas um caracter que usuário digita
+                    Console.Clear();
+                    Console.WriteLine("---------------------------------");
+                    Console.WriteLine("Jogo da Forca");
+                    Console.WriteLine("---------------------------------");
+                    Console.WriteLine("Palavra secreta: " + dicaDaPalavra);
+                    Console.WriteLine("---------------------------------");
+                    Console.WriteLine("---------------------------------");
+                    Console.WriteLine("Quantidade de erros: "+ quantidadeErros);
+                    Console.WriteLine("---------------------------------");
 
-                Console.WriteLine("Você digitou a letra: " + chute);
+                    Console.Write("Digite uma letra: ");
+                    char chute = Console.ReadLine()[0]; // pega apenas um caracter que usuário digita
+
+                    bool letraFoiEncontrada = false;
+
+                    for (int contador = 0; contador < palavraSecreta.Length; contador++)
+                    {
+                     char letraAtual = palavraSecreta[contador];
+
+                        if (chute == letraAtual)
+                        {
+                            letrasEncontradas[contador] = letraAtual;
+                            letraFoiEncontrada = true;
+                        }
+                    }
+
+                    if (letraFoiEncontrada == false)
+                    {
+                        quantidadeErros++;
+                    }
+
+                    dicaDaPalavra = string.Join(" ", letrasEncontradas);
+
+                    jogadorAcertou = dicaDaPalavra == palavraSecreta;
+                    jogadorEnforcou = quantidadeErros > 5; //6 tentativas o rapaz é enforcado
+
+                    if(jogadorAcertou)
+                    {
+                        Console.WriteLine("---------------------------------");
+                        Console.WriteLine("Você acertou a palavra secreta! A palavra era: " + palavraSecreta);
+                        Console.WriteLine("---------------------------------");
+                    }
+                    else if (jogadorEnforcou)
+                    {
+                        Console.WriteLine("---------------------------------");
+                        Console.WriteLine("Que azar tente novamente! A palavra era: " + palavraSecreta);
+                        Console.WriteLine("---------------------------------");
+                    }
+
+                } while (jogadorAcertou == false || jogadorEnforcou == false);// || = ou
+
                 Console.ReadLine();
 
             }
