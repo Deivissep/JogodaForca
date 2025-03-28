@@ -22,4 +22,4 @@ O jogador perde se atingir 6 erros antes de adivinhar a palavra secreta.
 
 Jogar Novamente: O jogo continuará rodando até que o usuário feche o programa.
 
-[![My Skills](https://skillicons.dev/icons?i=git,github,dotnet,c#)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=git,github,dotnet,cs)](https://skillicons.dev)
